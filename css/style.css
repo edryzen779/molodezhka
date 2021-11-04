@@ -38,7 +38,6 @@ body {
 	font-size: 16px;
 	font-family: Inter;
 	font-weight: 400;
-	background-size: cover;
 	padding: 2% 0;
 }
 /* -------------------------------------------------------- */
@@ -194,11 +193,13 @@ body {
 	perspective: 5000px;
 }
 .menu__item-1 {
-	width: 400px;
-	height: 800px;
+	height: 400px;
 }
 .menu__item-2 {
-	height: 300px;
+	height: 360px;
+}
+.menu__item-3 {
+	height: 330px;
 }
 .front,
 .back {
@@ -220,6 +221,7 @@ body {
 	text-shadow: 0 2px 2px #212121;
 	color: #ffffff;
 	background-repeat: no-repeat;
+	padding: 10px;
 }
 .back {
 	background-size: cover;
@@ -233,65 +235,61 @@ body {
 	font-size: 35px;
 	text-align: center;
 	color: #333;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 .back__text-small {
 	font-size: 10px;
 }
 
-a.open-popup {
-	display: inline-block;
+.back__btn{
+	position: absolute;
+	bottom: 5px;
+	left: 20px;
+	border: none;
+	cursor: pointer;
 	background-color: #333;
-	padding:  15px 30px;
 	color: #fff;
-	text-decoration: none;
+	padding: 10px 80px;
+	margin-top: 5px;
 }
-#popup {
+.back__overlay {
 	position: fixed;
-	width: 100%;
-	height: 100vh;
-	top: 0;
 	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
 	opacity: 0;
 	visibility: hidden;
-	z-index: 5;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	transition: all 0.3s ease-in-out;
+	z-index: 3;
 }
-#popup:target {
-	opacity: 1;
-	visibility: visible;
-}
-.popup__inner {
-	position: relative;
+.back__modal{
 	background-color: #fff;
-	max-width: 500px;
-	max-height: 100%;
-	transform: scale(0);
-	transition: all .5s ease;
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
 }
-#popup:target .popup__inner{
-	transform: scale(1);
-}
-.popup__item-img {
-	max-width: 500px;
+.back__modal img {
+	width: 100%;
+	height: auto;
 	object-fit: cover;
 }
-
-a.close-popup {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 40px;
-	height: 40px;
-	background-color: #006fde;
-	color: #fff;
-	text-decoration: none;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
+.back__overlay--visible {
+	display: flex;
+	opacity: 1;
+	visibility: visible;
+	transition: all 0.3s ease-in-out;
+}
+.back__modal--visible {
+	display: flex;
 }
 
 .menu__item:hover .front {
@@ -303,8 +301,14 @@ a.close-popup {
 .menu__pizza{
 	background-image: url(../img/pizza.jpg);
 }
-.menu__pizza-list {
-	background-image: url(../img/MENU-pizza.png);
+.menu__forbeer{
+	background-image: url(../img/m-forbeer.jpg);
+}
+.menu__salat{
+	background-image: url(../img/m-salat.jpg);
+}
+.menu__meat{
+	background-image: url(../img/m-meat.jpg);
 }
 .menu__hot{
 	background-image: url(../img/m-pat.jpg);
@@ -318,6 +322,10 @@ a.close-popup {
 }
 .menu__dough{
 	background-image: url(../img/m-dough.jpg);
+	background-size: cover;
+}
+.menu__cheb{
+	background-image: url(../img/m-cheb.jpg);
 	background-size: cover;
 }
 
