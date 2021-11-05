@@ -91,8 +91,8 @@ body {
 
 /* ---HEADER----------------------------------------------------- */
 .header {
-	height: 350px;
-	background-image: url(../img/top.jpg);
+	height: 250px;
+	background-image: url(../img/top2.png);
 	background-size: cover;
 	background-position: center;
 	background-color: #241112 ;
@@ -157,7 +157,7 @@ body {
 	margin: 0 auto;
 }
 
-.content__logo{
+.about__logo{
 	height: 200px;
 	max-width: 300px;
 	margin: 0 auto;
@@ -166,15 +166,9 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 }
-.content__top {
-	margin-bottom: 10px;
-}
-.content__top-img {
-	height: 300px;
 
-	margin-bottom: 20px;
-}
-.content__top-text {
+
+.about__text {
 	font-size: 17px;
 	margin: 0px 10px 15px 0px;
 	font-weight: 400;
@@ -185,6 +179,7 @@ body {
 
 .menu__items{
 	display: flex;
+	justify-content: center;
 }
 .menu__item {
 	width: 300px;
@@ -199,7 +194,17 @@ body {
 	height: 360px;
 }
 .menu__item-3 {
+	height: 300px;
+}
+.menu__item-4 {
 	height: 330px;
+}
+.menu__item-5 {
+	height: 330px;
+}
+.menu__item-6 {
+	height: 330px;
+	width: 270px;
 }
 .front,
 .back {
@@ -310,23 +315,45 @@ body {
 .menu__meat{
 	background-image: url(../img/m-meat.jpg);
 }
-.menu__hot{
+.menu__pat{
 	background-image: url(../img/m-pat.jpg);
 }
-.menu__snack{
+.menu__mang{
 	background-image: url(../img/m-mang.jpg);
+}
+.menu__fish{
+	background-image: url(../img/m-fish.jpg);
+}
+.menu__garn{
+	background-image: url(../img/m-garn.jpg);
+}
+.menu__first{
+	background-image: url(../img/m-first.jpg);
+}
+.menu__breakf{
+	background-image: url(../img/m-breakf.jpg);
+}
+.menu__cold{
+	background-image: url(../img/m-cold.jpg);
+}
+.menu__hot{
+	background-image: url(../img/m-hot.jpg);
 }
 .menu__cake{
 	background-image: url(../img/m-cake.jpg);
-	background-size: cover;
 }
 .menu__dough{
 	background-image: url(../img/m-dough.jpg);
-	background-size: cover;
+
 }
 .menu__cheb{
 	background-image: url(../img/m-cheb.jpg);
-	background-size: cover;
+}
+.menu__pasta{
+	background-image: url(../img/m-pasta.jpg);
+}
+.menu__fast{
+	background-image: url(../img/m-fast.jpg);
 }
 
 
