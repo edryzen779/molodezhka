@@ -6,8 +6,10 @@ $(".gallery-list").magnificPopup({
 	}
 });
 
-
-
+window.addEventListener("scroll",function(){
+	const header = document.querySelector('header');
+	header.classList.toggle('sticky', window.scrollY>0);
+});
 
 const btns = document.querySelectorAll('.back__btn');
 const modalOverlay = document.querySelector('.back__overlay ');
