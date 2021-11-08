@@ -32,23 +32,18 @@ html {
 }
 body {
 	height: 100%;
-	background-color: #3a3530;
 	background-attachment: fixed;
 	line-height: 1;
 	font-size: 16px;
 	font-family: Inter;
 	font-weight: 400;
 	padding: 2% 0;
+	color: #333;
 }
 /* -------------------------------------------------------- */
-
-.wrapper {
-	max-width: 100%;
-	margin: 0px auto;
-	background-color: rgb(255, 255, 255);
-	position: relative;
-	min-height: 100%;
-	box-shadow: px 6px 10px rgba(0, 0, 0, 0.616);
+.content {
+	width: 80%;
+	margin: 0 auto;
 }
 .title {
 	font-size: 40px;
@@ -57,14 +52,15 @@ body {
 	padding-bottom: 45px;
 	position: relative;
 	margin: 30px 0;
-	color: #402021ee;
+	color: #000;
 }
 .title:after {
 	content: "";
 	position: absolute;
 	width: 100px;
 	height: 3px;
-	background-image: linear-gradient(45deg, #402021ee 0%, #4020216e 100%);
+	background-image: linear-gradient(45deg, #000 0%, rgb(29, 29, 29) 50%, #333 100%);
+	border-radius: 30%;
 	bottom: 20px;
 	left: 50%;
 	transform: translateX(-50%);
@@ -96,15 +92,16 @@ header {
 	left: 0;
 	width: 100%;
 	height: 100vh;
+	padding: 0 100px;
 	background: #000;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	transition: 1s;
-	z-index: 1;
+	z-index: 4;
 }
 header.sticky {
-	height: 80px;
+	height: 60px;
 }
 .header__banner {
 	position: absolute;
@@ -116,7 +113,7 @@ header.sticky {
 	transition: 1s;
 }
 header.sticky .header__banner{
-	opacity: 0.1;
+	opacity: 0.1; 
 }
 .header__logo {
 	position: absolute;
@@ -140,13 +137,23 @@ header.sticky .header__logo{
 .header__nav{
 	position: relative;
 	display: flex;
-	z-index: 1;
+	z-index: 1; 
+
 }
 .header__nav-items{
 	position: relative;
 	display: flex;
 	transition: 0.25s;
+	transform: translateX(100px);
+	opacity: 0;
 }
+header.sticky .header__nav-items{
+	transform: translateX(0);
+	opacity: 1;
+	transition-delay: 0.75s;
+	opacity: 1;
+	visibility: visible;
+} 
 .header__nav-items li a {
 	color: #fff;
 	display: inline-block;
@@ -159,18 +166,27 @@ header.sticky .header__logo{
 	color:#ff275f;
 }
 
-/* ---NAV----------------------------------------------------- */
 
 /* ---CONTENT----------------------------------------------------- */
 
-.content {
-	width: 80%;
-	padding-top: 20px;
-	padding-bottom: 90px;
-	margin: 0 auto;
+section:first-of-type{
+	margin-top: 30vh;
 }
+/* section:nth-of-type(even){
+	background-color: #e6e3df;
+	background-image: url(../img/bg1.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+section:nth-of-type(odd){
+	background-color: darkgray;
+	background-image: url(../img/bg1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+ */
 
-.about__logo {
+/* .about__logo {
 	height: 200px;
 	max-width: 300px;
 	margin: 0 auto;
@@ -178,11 +194,17 @@ header.sticky .header__logo{
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+} */
+section:not(:first-of-type){
+	padding: 100px 0;
+	box-shadow: inset 4px 4px 8px rgb(102 102 102 / 60%);
 }
-
+.about {
+	padding: 100px 0;
+}
 .about p {
-	font-size: 17px;
-	margin: 0px 10px 15px 0px;
+	text-align: center;
+	font-size: 1.1em;
 	font-weight: 400;
 	line-height: 23px;
 }
@@ -192,32 +214,16 @@ header.sticky .header__logo{
 .menu__items {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 .menu__item {
-	width: 300px;
+	min-width: 270px;
 	height: 400px;
 	position: relative;
 	perspective: 5000px;
 }
-.menu__item-1 {
-	height: 400px;
-}
-.menu__item-2 {
-	height: 360px;
-}
-.menu__item-3 {
-	height: 300px;
-}
-.menu__item-4 {
-	height: 330px;
-}
-.menu__item-5 {
-	height: 330px;
-}
-.menu__item-6 {
-	height: 330px;
-	width: 270px;
-}
+
 .front,
 .back {
 	position: absolute;
@@ -236,8 +242,9 @@ header.sticky .header__logo{
 	font-size: 35px;
 	text-align: center;
 	text-shadow: 0 2px 2px #212121;
-	color: #ffffff;
+	color: #fff;
 	background-repeat: no-repeat;
+	background-size: cover;
 	padding: 10px;
 }
 .back {
@@ -245,6 +252,7 @@ header.sticky .header__logo{
 	box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.616);
 	transform: rotateY(180deg);
 	padding: 10px;
+	background-color: #fff;
 }
 .back h1 {
 	font-family: lobster;
@@ -284,7 +292,7 @@ header.sticky .header__logo{
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.3s ease-in-out;
-	z-index: 3;
+	z-index: 10;
 }
 .back__modal {
 	background-color: #fff;
@@ -371,7 +379,6 @@ header.sticky .header__logo{
 
 section.gallery {
 	position: relative;
-	padding: 10px 0;
 }
 .gallery-list {
 	position: relative;
@@ -379,14 +386,13 @@ section.gallery {
 	flex-wrap: wrap;
 	overflow: hidden;
 	font-size: 0;
-	margin-top: 30px;
 }
 .gallery-item {
 	display: block;
 	flex: 25%;
 	overflow: hidden;
 	position: relative;
-	height: 135px;
+	max-height: 220px;
 }
 .gallery-item-hover {
 	position: absolute;
@@ -423,7 +429,8 @@ section.gallery {
 
 .location__inner {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 50px;
 }
 .location__text {
@@ -440,7 +447,7 @@ section.gallery {
 	display: block;
 	line-height: 40px;
 	font-weight: 700;
-	color: #402021ee;
+	color: #000;
 }
 
 /* ---REVIEW----------------------------------------------------- */
@@ -467,7 +474,7 @@ section.gallery {
 /* ---FOOTER----------------------------------------------------- */
 
 .footer {
-	background-color: #241112;
+	background-color: #333;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -504,4 +511,63 @@ section.gallery {
 .social-item:hover {
 	text-shadow: 0px 0px 20px #fff;
 	color: #fff;
+}
+
+
+
+@media (max-width: 991px) {
+	section,
+	header{
+		padding: 40px;
+	}
+	header.sticky .header__logo{
+		left: 40px;
+	}
+	.header__nav-items{
+		z-index: 4;
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+	}
+	header.sticky nav ul{
+	opacity: 1;
+	visibility: visible;
+	}
+	nav.active ul{
+		position: fixed;
+		top: 80px;
+		left: 0;
+		width: 100%;
+		height: calc(100% - 80px);
+		background: #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		z-index: 1;
+	}
+	nav li a{
+		font-size: 1.5em;
+		padding: 5px 15px;
+	} 
+	header.sticky .toggle{
+		position: fixed;
+		top: 15px;
+		right: 40px;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		background: #fff url(../img/menu.png);
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-radius: 50%;
+	}
+	header.sticky .toggle.active{
+		background: #fff url(../img/close.png);
+		background-size: 20px;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
 }
