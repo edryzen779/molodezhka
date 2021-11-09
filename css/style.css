@@ -196,8 +196,10 @@ section:not(:first-of-type) {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	width: 96%;
 }
 .menu__item {
+	margin-bottom: -5px;
 	min-width: 270px;
 	height: 400px;
 	position: relative;
@@ -557,7 +559,7 @@ section.gallery {
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		z-index: 10;
+		z-index: 1;
 	}
 	nav li a {
 		font-size: 1.5em;
