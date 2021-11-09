@@ -6,14 +6,20 @@ $(".gallery-list").magnificPopup({
 	}
 });
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function () {
 	const header = document.querySelector('header');
-	header.classList.toggle('sticky', window.scrollY>0);
+	header.classList.toggle('sticky', window.scrollY > 0);
 });
 const navigation = document.querySelector('nav');
-document.querySelector('.toggle').onclick = function(){
+document.querySelector('.toggle').onclick = function () {
 	this.classList.toggle('active');
-	navigation.classList.toggle('active'); 
+	navigation.classList.toggle('active');
+	if ($('body').hasClass('lock-scroll')) {
+		$('body').removeClass('lock-scroll');
+	}
+	else {
+		$('body').addClass('lock-scroll');
+	}
 }
 
 

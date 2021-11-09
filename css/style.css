@@ -523,6 +523,9 @@ section.gallery {
 }
 
 @media (max-width: 991px) {
+	.lock-scroll {
+		overflow: hidden;
+	}
 	section,
 	header {
 		padding: 40px;
@@ -554,13 +557,13 @@ section.gallery {
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		z-index: 1;
+		z-index: 10;
 	}
 	nav li a {
 		font-size: 1.5em;
 		padding: 5px 15px;
 	}
-	header.sticky .toggle {
+	header .toggle {
 		position: fixed;
 		top: 15px;
 		right: 40px;
@@ -573,7 +576,7 @@ section.gallery {
 		background-position: center;
 		border-radius: 50%;
 	}
-	header.sticky .toggle.active {
+	header .toggle.active {
 		background: #fff url(../img/close.png);
 		background-size: 20px;
 		background-repeat: no-repeat;
