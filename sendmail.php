@@ -10,7 +10,7 @@
 	$mail->setLanguage('ru', 'phpmailer/language/');
 	$mail->IsHTML(true);
 
-	$mail->setFrom('info@molodezka.ua', 'Молодёжка');
+	$mail->setFrom('edryzen779@gmail.com', 'Молодёжка');
 	$mail->addAdress('cafe.molodezhka@gmail.com');
 
 	$mail->Subject = 'Заказ из сайта';
