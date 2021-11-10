@@ -1,3 +1,5 @@
+// ГАЛЕРЕЯ =================================
+'use strict'
 $(".gallery-list").magnificPopup({
 	delegate: "a",
 	type: "image",
@@ -5,6 +7,8 @@ $(".gallery-list").magnificPopup({
 		enabled: true
 	}
 });
+
+// ШАПКА И БУРГЕР =================================
 
 const header = document.querySelector('header');
 const body = document.querySelector('body');
@@ -21,13 +25,6 @@ document.querySelector('.toggle').onclick = function () {
 	body.classList.toggle('lock-scroll');
 	navigation.classList.toggle('active');
 	header.classList.add('sticky');
-
-	// if ($('body').hasClass('lock-scroll')) {
-	// 	$('body').removeClass('lock-scroll');
-	// }
-	// else {
-	// 	$('body').addClass('lock-scroll');
-	// };
 	document.querySelector('.header__nav-items').onclick = function () {
 		navigation.classList.toggle('active');
 		toggle.classList.toggle('active')
@@ -35,7 +32,7 @@ document.querySelector('.toggle').onclick = function () {
 	}
 }
 
-
+// МЕНЮ ПОПАП =================================
 
 const btns = document.querySelectorAll('.back__btn');
 const modalOverlay = document.querySelector('.back__overlay ');
@@ -65,61 +62,132 @@ modalOverlay.addEventListener('click', (e) => {
 	}
 });
 
+// СЛАЙДЕР =================================
 
-$(document).ready(function () {
-	if ($(window).width() > 992) {
-		$('.menu__items').slick({
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 3000,
-			variableWidth: true,
-			rows: 2,
-			dots: true,
-			infinite: true
-		}
-		)
-	}
-	else if ($(window).width() > 590) {
-		$('.menu__items').slick({
-			slidesToShow: 2,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 3000,
-			variableWidth: true,
-			dots: true,
-			rows: 2,
-			infinite: true
-		})
-	}
-	else if ($(window).width() < 590){
-		$('.menu__items').slick({
-			centerMode: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 3000,
-			variableWidth: true,
-			dots: true,
-			rows: 4,
-			infinite: true
-		})
-	}
+$(function () {
+	$('.menu__items').slick({
+		slidesToShow: 3,
+		slidesToScroll: 3,
+		autoplay: true,
+		autoplaySpeed: 3000,
+		variableWidth: true,
+		rows: 2,
+		dots: true,
+		speed: 1200,
+		infinite: true,
+		responsive: [{
+			breakpoint: 992,
+			settings: {
+				lidesToShow: 2,
+				slidesToScroll: 2,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				variableWidth: true,
+				dots: true,
+				rows: 2,
+				infinite: true,
+			}
+		}, {
+			breakpoint: 585,
+			settings: {
+				centerMode: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				variableWidth: false,
+				arrows: false,
+				dots: true,
+				rows: 1,
+				infinite: true
+			}
+		}]
+	});
 });
 
-// $(window).resize(function () {
-// 	if (window.width() < 768) {
-// 		$('.menu__items').slick({
-// 			slidesToShow: 3,
-// 			slidesToScroll: 1,
-// 			autoplay: true,
-// 			autoplaySpeed: 3000,
-// 			variableWidth: true,
-// 			rows: 3,
-// 			speed: 500
-// 		})
-// 	}
-// 	else {
-// 		//You probably want to do something here...
-// 	}
-// });
+// ПЛАВНЫЙ СКРОЛЛ =================================
+
+$('.header__nav-items a').on('click', function() {
+
+    let href = $(this).attr('href');
+
+    $('html, body').animate({
+        scrollTop: $(href).offset().top
+    }, {
+        duration: 970,   // по умолчанию «400» 
+        easing: "swing" // по умолчанию «swing» 
+    });
+
+    return false;
+});
+
+// ОТПРАВКА ФОРМЫ =================================
+
+document.addEventListener('DOMContentLoaded', function() {
+	const form = document.getElementById('form');
+	form.addEventListener('submit', formSend);
+
+	async function formSend(e) {
+		e.preventDefault();
+
+		let error = formValidate(form);
+
+		let formData = new FormData(form);
+		
+
+		if (error===0){
+			form.classList.add('_sending');
+			let response = await fetch('sendmail.php', {
+				method: 'POST',
+				body: formData
+			});
+			if (response.ok) {
+				let result = await response.json();
+				alert(result.message);
+				form.resset();
+				form.classList.remove('_sending');
+			}else {
+				alert('Ошибка')
+				form.classList.remove('_sending');
+			}
+		}else {
+			alert('Заполните обязательные поля')
+		}
+	}
+
+	function formValidate(form) {
+		let error = 0;
+		let formReq = document.querySelectorAll('._req');
+
+		for (let index = 0; index < formReq.length; index++) {
+			const input = formReq[index];
+			formRemoveError(input);
+
+			if (input.classList.contains('_email')) {
+				if (emailTest(input)){
+					formAddError(input);
+					error++;
+				}
+			}else {
+				if(input.value === '') {
+				formAddError(input);
+				error++
+				}
+			}
+		}
+		return error;
+	}
+
+	function formAddError(input) {
+		input.parentElement.classList.add('_error');
+		input.classList.add('_error')
+	}
+	function formRemoveError(input) {
+		input.parentElement.classList.remove('_error');
+		input.classList.remove('_error')
+	}
+
+	function emailTest(input) {
+		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+	}
+});

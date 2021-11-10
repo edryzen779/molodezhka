@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,400;0,600;0,800;1,400&display=swap&subset=cyrillic-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="css/slick-theme.css">
@@ -17,13 +17,13 @@
 
 <body>
 	<header class="header">
-		<img src="img/top1.jpg" class="header__banner" alt="banner">
+		<img src="img/top6.jpg" class="header__banner" alt="banner">
 		<a href="#" class="header__logo">Molodezhka</a>
 		<div class="toggle"></div>
 		<div class="header__img"></div>
 		<nav class="header__nav">
 			<ul class="header__nav-items">
-				<li><a href="#about">Головна</a></li>
+				<li><a href="#about">Про заклад</a></li>
 				<li><a href="#menu">Меню</a></li>
 				<li><a href="#gallery">Галерея</a></li>
 				<li><a href="#review">Відгуки</a></li>
@@ -33,7 +33,8 @@
 	</header>
 	<section id="about" class="about">
 		<div class="content">
-			<p>Кафе «Молодіжне» — це затишний заклад міста Скадовська, в якому можна не тільки смачно та ситно поїсти,
+			<H1 class="about__title">Кафе «Молодіжне»</H1>
+			<p>Затишний заклад міста Скадовська, в якому можна не тільки смачно та ситно поїсти,
 				але також весело та цікаво провести час всією родиною чи
 				галасливою компанією друзів! Дні народження, корпоративи, вечірки, дитячі свята – ці та інші
 				святкові дати Вашого життя запам'ятатимуться Вам надовго, якщо Ви відзначите їх у кафе
@@ -61,7 +62,7 @@
 		</div>
 	</section>
 	<section id="menu" class="menu">
-		<div class="content">
+		<div class="content slider">
 			<h2 class="title">Наше меню</h2>
 			<div class="menu__items">
 				<div class="menu__item">
@@ -623,10 +624,10 @@
 					<div class="social__links">
 						<h5 class="social__links-title">Соціальні мережі:</h5>
 						<div class="social__links-wrapper">
-							<a class="social__link" href="#">
+							<a class="social__link" href="https://www.facebook.com/groups/311641669452946">
 								<img src="img/fb.png" alt="">
 							</a>
-							<a class="social__link" href="#">
+							<a class="social__link" href="https://www.instagram.com/molodezhka.cafe/">
 								<img src="img/inst.png" alt="">
 							</a>
 						</div>
@@ -640,27 +641,29 @@
 			</div>
 	</section>
 	<footer class="footer">
-		<ul class="social">
-			<li class="social-item">
-				<a href="https://www.facebook.com/groups/311641669452946" target="_blank"">
-						<i class=" fa fa-facebook"></i>
-				</a>
-			</li>
-			<li class="social-item">
-				<a href="https://www.instagram.com/molodezhka.cafe/" target="_blank">
-					<i class="fa fa-instagram"></i>
-				</a>
-			</li>
-			<li class="social-item">
-				<a href="https://www.google.com/" target="_blank">
-					<i class="fa fa-google"></i>
-				</a>
-			</li>
-		</ul>
+		<div class="form">
+			<form action="#" id="form" class="form__body">
+				<h1 class="form__tittle">Отправить заказ на почту</h1>
+				<div class="form__item">
+					<label for="formName" class="form__label">Имя*:</label>
+					<input id="formName" type="text" name="name" class="form__input _req">
+				</div>
+				<div class="form__item">
+					<label for="formEmail" class="form__label">E-mail*:</label>
+					<input id="formEmail" type="text" name="email" class="form__input _req _email">
+				</div>
+				<div class="form__item">
+					<label for="formMessage" class="form__label">Сообщение</label>
+					<textarea name="message" id="formMessage" class="form__input"></textarea>
+				</div>
+				<button type="submit" class="form__button">Отправить</button>
+			</form>
+		</div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.5.1.js"
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 		<script src="js/slick.min.js"></script>
 		<script src="js/main.js"></script>
 </body>
