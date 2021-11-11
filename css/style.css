@@ -31,7 +31,7 @@ h6 {
 	scroll-behavior: smooth;
 } */
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	min-width: 320px;
 	font-size: 16px;
 	font-weight: 400;
@@ -65,8 +65,9 @@ header {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	transition: 1s;
+	transition: 1.3s;
 	z-index: 4;
+	margin-bottom: 100vh;
 }
 header.sticky {
 	height: 60px;
@@ -80,10 +81,9 @@ header.sticky {
 	object-fit: cover;
 	transition: 1s;
 	opacity: 0.5;
-	filter: blur(9px);
 }
 header.sticky .header__banner {
-	opacity: 0.1;
+	opacity: 0.05;
 }
 .header__logo {
 	position: absolute;
@@ -103,17 +103,17 @@ header.sticky .header__logo {
 	left: 100px;
 	transform: translate(0, -50%);
 }
-.header__img{
-    position: absolute;
-    top: 63%;
-    left: 10%;
+.header__img {
+	position: absolute;
+	top: 63%;
+	left: 10%;
 	height: 25%;
 	width: 40%;
 	background-image: url(../img/logo1.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 }
-header.sticky .header__img{
+header.sticky .header__img {
 	opacity: 0;
 	transition: 1s;
 }
@@ -155,15 +155,20 @@ header.sticky .header__nav-items {
 section:first-of-type {
 	padding-top: 50vh;
 }
-section:nth-of-type(even){
-	background-color: #f0e1d7;
+section:nth-of-type(even) {
+	background-color: #ffe53b;
+	background-image: linear-gradient(147deg, #ffe53b 0%, #fd3838ce 74%);
+	/* background-image: linear-gradient(147deg, #ffe53b 0%, #4538fd 74%); */
 	/* background-image: url(../img/bg1.png); */
 	background-repeat: no-repeat;
 	background-size: cover;
-	box-shadow: inset 0px 0px 18px rgb(102 102 102 / 60%);
 }
-section:nth-of-type(odd){
+section:nth-of-type(even) h2 {
+	color: #fff;
+}
+section:nth-of-type(odd) {
 	background-color: #fff;
+	box-shadow: 0px 0px 18px rgb(0, 0, 0);
 	/* background-image: url(../img/bg1.jpg); */
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -185,7 +190,7 @@ section:not(:first-of-type) {
 .about {
 	padding: 100px 0;
 }
-.about__title{
+.about__title {
 	font-size: 50px;
 	font-weight: 600;
 }
@@ -199,18 +204,17 @@ section:not(:first-of-type) {
 }
 
 /* ---МЕНЮ----------------------------------------------------- */
-.content.slider{
+.content.slider {
 	max-width: 100%;
-	padding-left: 7%;
 }
-.menu__items {
+/* .menu__items {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 	width: 90%;
-	margin: 0 25px;
-}
+	margin: 0 5;
+} */
 .menu__item {
 	margin-bottom: -5px;
 	min-width: 270px;
@@ -268,14 +272,14 @@ section:not(:first-of-type) {
 
 .back__btn {
 	position: absolute;
-	bottom: 5px;
-	left: 20px;
+	width: 80%;
+	left: 10%;
+	bottom: 10px;
 	border: none;
 	cursor: pointer;
 	background-color: #333;
 	color: #fff;
 	padding: 10px 80px;
-	margin-top: 5px;
 }
 .back__overlay {
 	position: fixed;
@@ -497,90 +501,7 @@ section.gallery {
 }
 /* ---FOOTER----------------------------------------------------- */
 
-.footer {
-	background-color: #b99170;
-}
-.form {
-	max-width: 500px;
-	margin: 0 auto;
-	color: #fff;
-	padding: 30px 0;
-}
-.form * {
-	outline: none;
-}
-.form__body {
-	position: relative;
-}
-.form__body::after {
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/* background: rgba(51, 51, 51, 0.9) url("../img/loading.gif") center / 50px no-repeat; */
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.5s ease 0s;
-}
-.form__body._sending::after {
-	opacity: 1;
-	visibility: visible;
-}
-
-.form__tittle {
-	font-size: 20px;
-	font-weight: 600;
-	margin-bottom: 20px;
-}
-.form__item {
-}
-.form__label {
-	display: block;
-	margin-bottom: 5px;
-}
-.form__input {
-	height: 30px;
-	padding: 0 20px;
-	border-radius: 5px;
-	width: 100%;
-	font-size: 18px;
-}
-.form__input:focus{
-	box-shadow: 0 0 5px #fff;
-}
-.form__input._error {
-	box-shadow: 0 0 5px red;
-}
-textarea.form__input {
-	min-height: 120px;
-	resize: vertical;
-	padding: 20px;
-}
-.form__button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(87, 211, 114, 0.726);
-	color: #fff;
-	font-size: 18px;
-	font-weight: 600;
-	border-radius: 10px;
-	cursor: pointer;
-	box-shadow: 2px 2px 5px rgba(51, 51, 51, 0.74);
-	padding: 8px 15px;
-	transition: 0.5s ease 0s;
-}
-.form__button:hover{
-	background-color: rgb(83, 136, 83);
-}
-
-
-
-
 /* ---MEDIA----------------------------------------------------- */
-
 
 @media (max-width: 991px) {
 	.lock-scroll {
@@ -643,7 +564,7 @@ textarea.form__input {
 		background-repeat: no-repeat;
 		background-position: center;
 	}
-	.header__img{
+	.header__img {
 		display: none;
 	}
 	.gallery-item {

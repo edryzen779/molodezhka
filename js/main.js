@@ -66,40 +66,33 @@ modalOverlay.addEventListener('click', (e) => {
 
 $(function () {
 	$('.menu__items').slick({
-		slidesToShow: 3,
+		slidesToShow: 5,
 		slidesToScroll: 3,
 		autoplay: true,
-		autoplaySpeed: 3000,
-		variableWidth: true,
-		rows: 2,
-		dots: true,
+		autoplaySpeed: 4000,
+		waitForAnimate: true,
+		rows: 1,
+		dots: false,
 		speed: 1200,
 		infinite: true,
+		swipeToSlide: true,
 		responsive: [{
 			breakpoint: 992,
 			settings: {
-				lidesToShow: 2,
+				slidesToShow: 3,
 				slidesToScroll: 2,
 				autoplay: true,
 				autoplaySpeed: 3000,
-				variableWidth: true,
-				dots: true,
-				rows: 2,
-				infinite: true,
+				rows: 1,
 			}
 		}, {
 			breakpoint: 585,
 			settings: {
-				centerMode: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
 				autoplay: true,
 				autoplaySpeed: 3000,
-				variableWidth: false,
-				arrows: false,
-				dots: true,
-				rows: 1,
-				infinite: true
+				arrows: true,
 			}
 		}]
 	});
@@ -107,17 +100,17 @@ $(function () {
 
 // ПЛАВНЫЙ СКРОЛЛ =================================
 
-// $('.header__nav-items a').on('click', function() {
+$('.header__nav-items a').on('click', function() {
 
-//     let href = $(this).attr('href');
+    let href = $(this).attr('href');
 
-//     $('html, body').animate({
-//         scrollTop: $(href).offset().top
-//     }, {
-//         duration: 970,   // по умолчанию «400» 
-//         easing: "swing" // по умолчанию «swing» 
-//     });
+    $('html, body').animate({
+        scrollTop: $(href).offset().top
+    }, {
+        duration: 970,   // по умолчанию «400» 
+        easing: "swing" // по умолчанию «swing» 
+    });
 
-//     return false;
-// });
+    return false;
+});
 

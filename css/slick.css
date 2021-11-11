@@ -1,119 +1,98 @@
-/* Slider */
-.slick-slider
-{
-    position: relative;
+/* Основные стили */
 
-    display: block;
-    box-sizing: border-box;
-
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-
-    -webkit-touch-callout: none;
-    -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-        touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent;
+/* Слайдер */
+.slick-slider{
+	min-width: 0;
+}
+/* Ограничивающая оболочка */
+.slick-list {
+	overflow: hidden;
+}
+/* Лента слайдов */
+.slick-track{
+	display: flex;
+	align-items: flex-start;
 }
 
-.slick-list
-{
-    position: relative;
+/* Слайд */
+.slick-slide{}
+/* Слайд активный */
+.slick-slide.slick-active{}
+/* Слайд основной */
+.slick-slide.slick-current{}
+/* Слайд по центру */
+.slick-slide.slick-center{}
 
-    display: block;
-    overflow: hidden;
+/* Стрелка */
+.slick-arrow{}
+/* Стрелка влево */
+.slick-arrow.slick-prev{}
+/* Стрелка вправо */
+.slick-arrow.slick-next{}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled{}
 
-    margin: 0;
-    padding: 0;
-}
-.slick-list:focus
-{
-    outline: none;
-}
-.slick-list.dragging
-{
-    cursor: pointer;
-    cursor: hand;
-}
+/* Точки */
+.slick-dots{}
+.slick-dots li{}
+.slick-dots button{}
 
-.slick-slider .slick-track,
-.slick-slider .slick-list
-{
-    -webkit-transform: translate3d(0, 0, 0);
-       -moz-transform: translate3d(0, 0, 0);
-        -ms-transform: translate3d(0, 0, 0);
-         -o-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-}
-
-.slick-track
-{
-    position: relative;
-    top: 0;
-    left: 0;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.slick-track:before,
-.slick-track:after
-{
-    display: table;
-
-    content: '';
-}
-.slick-track:after
-{
-    clear: both;
-}
-.slick-loading .slick-track
-{
-    visibility: hidden;
+/* Конкретный слайдер */
+.menu__items {
+	position: relative;
+	padding: 0px 60px;
 }
 
-.slick-slide
-{
-    display: none;
-    float: left;
+@media (max-width:767px){
+	.menu__items {
+		padding: 0px 40px;
+	}
+}
 
-    height: 100%;
-    min-height: 1px;
+.menu__items .slick-arrow{
+	position: absolute;
+	top: 50%;
+	margin: -30px 0px 0px 0px;
+	z-index: 2;
+	font-size: 0;
+	width: 30px;
+	height: 60px;
+	cursor: pointer;
 }
-[dir='rtl'] .slick-slide
-{
-    float: right;
+.menu__items .slick-arrow.slick-prev{
+	left: 0;
+	background: url('../img/sl-arrow_l.svg') 0 0 / 100% no-repeat;
 }
-.slick-slide img
-{
-    display: block;
+.menu__items .slick-arrow.slick-next{
+	right: 0;
+	background: url('../img/sl-arrow_r.svg') 0 0 / 100% no-repeat;
 }
-.slick-slide.slick-loading img
-{
-    display: none;
+.menu__items .slick-arrow.slick-disabled{
+	opacity: 0.2;
 }
-.slick-slide.dragging img
-{
-    pointer-events: none;
-}
-.slick-initialized .slick-slide
-{
-    display: block;
-}
-.slick-loading .slick-slide
-{
-    visibility: hidden;
-}
-.slick-vertical .slick-slide
-{
-    display: block;
 
-    height: auto;
+.menu__items .slick-dots{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.menu__items .slick-dots li{
+	list-style: none;
+	margin: 0px 10px;
+}
+.menu__items .slick-dots button{
+	font-size: 0;
+	width: 10px;
+	height: 10px;
+	background-color: #333;
+	opacity: 0.3;
+	border-radius: 50%;
+	cursor: pointer;
+}
 
-    border: 1px solid transparent;
+.menu__items .slick-dots li.slick-active button{
+	background-color: #333;
+	opacity: 1;
 }
-.slick-arrow.slick-hidden {
-    display: none;
-}
+
+
