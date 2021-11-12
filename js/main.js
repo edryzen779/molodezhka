@@ -26,9 +26,9 @@ document.querySelector('.toggle').onclick = function () {
 	navigation.classList.toggle('active');
 	header.classList.add('sticky');
 	document.querySelector('.header__nav-items').onclick = function () {
-		navigation.classList.toggle('active');
-		toggle.classList.toggle('active')
-		body.classList.toggle('lock-scroll');
+		navigation.classList.remove('active');
+		toggle.classList.remove('active')
+		body.classList.remove('lock-scroll');
 	}
 }
 
@@ -100,17 +100,57 @@ $(function () {
 
 // ПЛАВНЫЙ СКРОЛЛ =================================
 
-$('.header__nav-items a').on('click', function() {
+$('.header__nav-items a').on('click', function () {
 
-    let href = $(this).attr('href');
+	let href = $(this).attr('href');
 
-    $('html, body').animate({
-        scrollTop: $(href).offset().top
-    }, {
-        duration: 970,   // по умолчанию «400» 
-        easing: "swing" // по умолчанию «swing» 
-    });
+	$('html, body').animate({
+		scrollTop: $(href).offset().top
+	}, {
+		duration: 970,   // по умолчанию «400» 
+		easing: "swing" // по умолчанию «swing» 
+	});
+	$(navigation).removeClass('active');
+	$(toggle).removeClass('active');
+	$(body).removeClass('lock-scroll');
 
-    return false;
+	return false;
 });
 
+
+// АНИМАЦИЯ ПОЯВЛЕНИЯ =================================
+
+const animItems = document.querySelectorAll('._anim-items');
+
+if (animItems.length > 0) {
+	window.addEventListener('scroll', animOnScroll);
+	function animOnScroll() {
+		for (let index=0; index < animItems.length; index++) {
+			const animItem =animItems[index];
+			const animItemHeight = animItem.offsetHeight;
+			const animItemOffset = offset(animItem).top;
+			const animStart = 5;
+
+			let animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+			if (animItemHeight > window.innerHeight) {
+				animItemPoint = window.innerHeight - window.innerHeight / animStart;
+			}
+
+			if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+				animItem.classList.add('_active')
+			} else {
+				// if (animItem.classList.contains('_anim-hide')) {
+				animItem.classList.remove('_active')
+				// }
+			}
+		}
+	}
+	function offset(el) {
+		const rect = el.getBoundingClientRect(),
+			scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+			scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+	}
+	animOnScroll();
+}
